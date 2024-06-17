@@ -137,4 +137,9 @@ function keyPressed() {
   } else if (key === "9") {
     toggleSong(song9);
   }
+  }
+function keyPressed() {
+  if (key == "s") {
+    saveCanvas("photo", "jpg");
+  }
 }
