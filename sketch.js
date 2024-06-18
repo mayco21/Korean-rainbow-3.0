@@ -20,7 +20,7 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   // Create the rainbow gradient background
   gradientImage = createRainbowGradientImage(width, height);
-  // Draw the black cover
+  // Draw the black cover after the gradient image is loaded
   drawBlackCover();
 }
 
@@ -35,7 +35,6 @@ function draw() {
 function createRainbowGradientImage(w, h) {
   let img = createImage(w, h);
   img.loadPixels();
-
   let colors = [
     color(255, 0, 0), // Red
     color(255, 127, 0), // Orange
@@ -45,7 +44,6 @@ function createRainbowGradientImage(w, h) {
     color(75, 0, 130), // Indigo
     color(143, 0, 255), // Violet
   ];
-
   for (let y = 0; y < h; y++) {
     let inter = map(y, 0, h, 0, 1);
     let c = lerpRainbowColor(colors, inter);
@@ -111,7 +109,7 @@ function toggleSong(song) {
 
 // Function to handle key presses
 function keyPressed() {
-  if (key == "e") {
+  if (key == "E") {
     // Restart everything from the beginning
     if (playingSong) {
       playingSong.stop();
@@ -136,10 +134,7 @@ function keyPressed() {
     toggleSong(song8);
   } else if (key === "9") {
     toggleSong(song9);
-  }
-  }
-function keyPressed() {
-  if (key == "s") {
+  } else if (key == "s") {
     saveCanvas("photo", "jpg");
   }
 }
